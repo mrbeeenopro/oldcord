@@ -1,64 +1,43 @@
-@import url('https://raw.githubusercontent.com/surgedevs/visual-refresh-compact-title-bar/refs/heads/main/desktop.css');@import url("https://scattagain.github.io/VencordStuff/css/GuildbarRevert.css");@import url('https://raw.githubusercontent.com/LuSaffi/VenCordstuff/refs/heads/main/CSS/%5BOLD_UI%5DcutoffFixes.css');
-
-
-.icon_f34534.guildIcon__48112 { border-radius: 50% !important }
-
-{
-    /* Only include this part if you wish to change these variables */
-    /* You can change the size but only to be less than 48px, you must change the blob scale too */
-    --guildbar-avatar-size: 48px;
-    --blob-scale: 48;
-
-    --guildbar-folder-size: var(--guildbar-avatar-size);
-    --folder-blob-scale: var(--blob-scale);
-}
-
-.visual-refresh [class^="panels_"] {
-    border-radius: 0;
-    left: var(--custom-guild-list-width);
-    bottom: 0;
-    width: calc(var(--custom-guild-sidebar-width) - var(--custom-guild-list-width) + 1px);
+@import url('https://raw.githubusercontent.com/surgedevs/visual-refresh-compact-title-bar/refs/heads/main/desktop.css');
+@import url("https://scattagain.github.io/VencordStuff/css/GuildbarRevert.css");
+@import url('https://raw.githubusercontent.com/LuSaffi/VenCordstuff/refs/heads/main/CSS/%5BOLD_UI%5DcutoffFixes.css');
+@import url("https://scattagain.github.io/VencordStuff/css/GuildbarRevert.css");
+:root {
+   --guildbar-avatar-size: 48px;
+   --blob-scale: 48;
+ 
+   --guildbar-folder-size: var(--guildbar-avatar-size);
+   --folder-blob-scale: var(--blob-scale);
 }
 
 .visual-refresh {
-    --custom-channel-textarea-text-area-height: 56px;
-    .form_f75fb0 {
-        display: flex;
-        flex-direction: column;
-    }
-    .channelTextArea_f75fb0 {
-        margin-bottom: 8px;
-    }
-    .base_b88801 {
-        position: static;
-        order: -1;
-    }
+  --custom-channel-textarea-text-area-height: 56px;
+  .form_f75fb0 {
+      display: flex;
+      flex-direction: column;
+  }
+  .channelTextArea_f75fb0 {
+      margin-bottom: 8px;
+  }
+  .base_b88801 {
+      position: static;
+      order: -1;
+  }
 }
 
-/*disable Activity Status*/
-
-[class*='membersGroup']:has([role=button]),
-[class*='member'] [class*='container']:has([class*='badges']) {
-  display: none;
+.icon_f34534.guildIcon__48112 { 
+  border-radius: 50%; 
+}
+.visual-refresh div[class^="sidebar_"] section[class^="panels_"] {
+  width: calc(var(--custom-guild-sidebar-width) - var(--custom-guild-list-width) + 1px);
+  left: var(--custom-guild-list-width);
+  bottom: 0px;
+  border-radius: 0px;
+  border: none;
 }
 
-/* Aligned Chat Box and Typing indicator */
-.container_c48ade {
-  --custom-chat-input-margin-bottom: 22px;
-}
-:root {
-  --custom-channel-textarea-text-area-height: 42px;
-}
-.visual-refresh .base_b88801 {
-  font-size: 13.5px;
-  height: 22px;
-  display: flex !important;
-  align-items: center !important;
-}
-
-[class*="closedFolderIconWrapper_"] > [class*="guildIcon_"],
-[data-list-item-id*="guildsnav_"] > [class*="icon_"] {
-    border-radius: 50% !important;
+.visual-refresh nav[class*=guilds_] {
+margin-bottom: unset;
 }
 
 .visual-refresh section.panels_c48ade {
@@ -66,35 +45,9 @@
   width: calc(100% - var(--custom-guild-list-width) - var(--space-xs)*2);
   box-sizing: content-box;
 
- .actionButtons_e131a9 button {
+  .actionButtons_e131a9 button {
     padding: 0;
- }
-
-.visual-refresh .scrollerInner__36d07 {
-    padding-bottom: 5px;
-}
-
-.visual-refresh .membersWrap_c8ffbb .membersGroup_c8ffbb {
-    padding-bottom: 25px;
-}
-
-.visual-refresh .button__74017,.buttonContents_e6e74f:not([class*="enabled__67645"]) {
-    transform: scale(1.25) !important;
-}
-
-.visual-refresh .spriteContainer__04eed {
-   transform: scale(1.1) !important;
-}
-  
-
-  span[class*="timestampInline_"] time::before {
-  content: attr(aria-label);
-  font-size: 12px;
-}
-
-span[class*="timestampInline_"] {
-  font-size: 0px !important;
-}
+  }
 
   /* GameActivityToggle Fix (delete if you don't use) */
   /* .container__37e49 {
@@ -123,44 +76,88 @@ nav.guilds_c48ade {
   width: calc(100% - var(--custom-guild-list-width)*2 - var(--space-xs)*2 ) !important;
 } */
 
-.bar_c38106{
-    z-index: 28371983721897;
-}
-.title_c38106{
-    background-color: transparent;
-    background: linear-gradient(to bottom, var(--background-base-lowest), #00000000);
-}
-.title_a7d72e{
-    -webkit-app-region: drag;
+span[class*="timestampInline_"] time::before {
+  content: attr(aria-label);
+  font-size: 12px;
 }
 
-.sidebar_c48ade{
-    overflow: visible !important;
-    position: relative;
+span[class*="timestampInline_"] {
+  font-size: 0px !important;
 }
 
-.sidebarList_c48ade{
-    margin-left: 72px;
+.containerDefault__29444 {
+  > div {
+    padding-left: 0.5em;
+
+    > div {
+      display: flex !important;
+      place-content: start !important;
+      flex-direction: row-reverse !important;
+    }
+  }
 }
 
-.wrapper_ef3116{
-    position: absolute;
-    top: -35px;
-    height: calc(100vh - 65px);
-    /* padding-top: 10px; */
+/* Hide nameplates */
+[style^="background: linear-gradient(90deg"]:has([src*="/nameplates/"]) { display: none; }
+[class*="dm_"]:has([class*="linkPlated_"]) {
+    /* Adjust padding for elements with "linkPlated_" class inside "dm_" */
+    & [class*="linkPlated_"] { 
+        padding-right: var(--space-16); 
+    }
+    & [class*="closeButtonPlated_"] {
+        opacity: 0.7;
+        &:hover { 
+            opacity: 1; 
+        }
+        & [class^="innerCloseButtonPlated"] {
+            opacity: unset; 
+            background: none;
+            & svg {
+                color: inherit;
+                &:is(:hover, :focus-within) { 
+                    color: var(--interactive-hover); 
+                }
+            }
+        }
+    }
 }
 
-[class^="stack_dbd263 scroller_ef3116"]{
-    padding-top: 40px !important;
+
+[class*="lated"] {
+    /* Remove background gradient and hide video containers or images */
+    & [style^="background: linear-gradient("] {
+        background: none !important;
+        & [class^="videoContainer_"], img { 
+            display: none; 
+        }
+    }
+    /* Adjust background for selected elements */
+    &[class*="selected_"]:has([style^="background: linear-gradient("]) {
+        background: var(--bg-overlay-selected, var(--background-modifier-selected)) !important;
+    }
+    /* Adjust hover and focus styles */
+    &:has([style^="background: linear-gradient("]) {
+        &:hover, &:focus-within { 
+            background: var(--bg-overlay-hover, var(--background-modifier-hover)) !important; 
+        }
+    }
 }
 
-.theme-darker {
-    --background-secondary-alt: color-mix(in oklab,var(--neutral-82) 100%, var(--theme-base-color,#000) var(--theme-base-color-amount, 0%));
-    --bg-surface-overlay: color-mix(in oklab, var(--primary-800) 100%, var(--theme-base-color, #000) var(--theme-base-color-amount, 0%));
+/* Reset padding for elements with "linkPlated_" class */
+[class*="linkPlated_"] { 
+    padding-right: 0; 
 }
 
-.theme-midnight {
-    --background-secondary-alt: color-mix(in oklab, var(--neutral-95) 100%, var(--theme-base-color, #000) var(--theme-base-color-amount, 0%));
-    --bg-surface-overlay: color-mix(in oklab, var(--primary-800) 100%, var(--theme-base-color, #000) var(--theme-base-color-amount, 0%));
+/* REMOVE QUICK REACT BAR */
+.button_f7ecac.hoverBarButton_f84418:nth-of-type(1),
+.button_f7ecac.hoverBarButton_f84418:nth-of-type(2),
+.button_f7ecac.hoverBarButton_f84418:nth-of-type(3),
+.separator_f84418 {
+   display: none;
 }
+
+
+
+    /* Only include this part if you wish to change these variables */
+    /* You can change the size but only to be less than 48px, you must change the blob scale too */
 
