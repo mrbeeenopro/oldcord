@@ -1,30 +1,28 @@
 @import url('https://raw.githubusercontent.com/surgedevs/visual-refresh-compact-title-bar/refs/heads/main/desktop.css');
 @import url("https://scattagain.github.io/VencordStuff/css/GuildbarRevert.css");
 @import url('https://raw.githubusercontent.com/LuSaffi/VenCordstuff/refs/heads/main/CSS/%5BOLD_UI%5DcutoffFixes.css');
-@import url("https://scattagain.github.io/VencordStuff/css/GuildbarRevert.css");
+
 :root {
    --guildbar-avatar-size: 48px;
    --blob-scale: 48;
- 
    --guildbar-folder-size: var(--guildbar-avatar-size);
    --folder-blob-scale: var(--blob-scale);
 }
 
 .visual-refresh {
   --custom-channel-textarea-text-area-height: 56px;
-  .form_f75fb0 {
-      display: flex;
-      flex-direction: column;
-  }
-  .channelTextArea_f75fb0 {
-      margin-bottom: 8px;
-  }
-  .base_b88801 {
-      position: static;
-      order: -1;
-  }
 }
-
+.visual-refresh .form_f75fb0 {
+  display: flex;
+  flex-direction: column;
+}
+.visual-refresh .channelTextArea_f75fb0 {
+  margin-bottom: 8px;
+}
+.visual-refresh .base_b88801 {
+  position: static;
+  order: -1;
+}
 .icon_f34534.guildIcon__48112 { 
   border-radius: 50%; 
 }
@@ -35,129 +33,91 @@
   border-radius: 0px;
   border: none;
 }
-
-.visual-refresh nav[class*=guilds_] {
-margin-bottom: unset;
+.visual-refresh nav[class*="guilds_"],
+nav.guilds_c48ade {
+  margin-bottom: 0 !important;
+}
+.sidebar_c48ade::after {
+  display: none;
 }
 
 .visual-refresh section.panels_c48ade {
   left: calc(var(--custom-guild-list-width) + var(--space-xs));
   width: calc(100% - var(--custom-guild-list-width) - var(--space-xs)*2);
   box-sizing: content-box;
-
-  .actionButtons_e131a9 button {
-    padding: 0;
-  }
-
-  /* GameActivityToggle Fix (delete if you don't use) */
-  /* .container__37e49 {
-    padding: var(--space-xxs);
-    gap: var(--space-4);
-    >.buttons__37e49 {
-      gap: 0;
-    }
-    >.avatarWrapper__37e49 {
-      min-width: 32px !important;
-      >.avatar__37e49 {
-        scale: 0.9;
-      }
-    }
-  } */
 }
-nav.guilds_c48ade {
-  margin-bottom: 0 !important;
+.visual-refresh .actionButtons_e131a9 button {
+  padding: 0;
 }
-.sidebar_c48ade:after {
-  display: none;
-}
-/* BetterFolders fix (delete if you don't use) */
-/* .visual-refresh [style$="grid-area: betterFoldersSidebar;"]~section.panels_c48ade {
-  left: calc(var(--custom-guild-list-width)*2  + var(--space-xs));
-  width: calc(100% - var(--custom-guild-list-width)*2 - var(--space-xs)*2 ) !important;
-} */
 
 span[class*="timestampInline_"] time::before {
   content: attr(aria-label);
   font-size: 12px;
 }
-
 span[class*="timestampInline_"] {
-  font-size: 0px !important;
+  font-size: 0 !important;
 }
 
-.containerDefault__29444 {
-  > div {
-    padding-left: 0.5em;
-
-    > div {
-      display: flex !important;
-      place-content: start !important;
-      flex-direction: row-reverse !important;
-    }
-  }
+.containerDefault__29444 > div {
+  padding-left: 0.5em;
+}
+.containerDefault__29444 > div > div {
+  display: flex !important;
+  place-content: start !important;
+  flex-direction: row-reverse !important;
 }
 
 /* Hide nameplates */
-[style^="background: linear-gradient(90deg"]:has([src*="/nameplates/"]) { display: none; }
-[class*="dm_"]:has([class*="linkPlated_"]) {
-    /* Adjust padding for elements with "linkPlated_" class inside "dm_" */
-    & [class*="linkPlated_"] { 
-        padding-right: var(--space-16); 
-    }
-    & [class*="closeButtonPlated_"] {
-        opacity: 0.7;
-        &:hover { 
-            opacity: 1; 
-        }
-        & [class^="innerCloseButtonPlated"] {
-            opacity: unset; 
-            background: none;
-            & svg {
-                color: inherit;
-                &:is(:hover, :focus-within) { 
-                    color: var(--interactive-hover); 
-                }
-            }
-        }
-    }
+[style^="background: linear-gradient(90deg"] img[src*="/nameplates/"] {
+  display: none;
 }
 
-
-[class*="lated"] {
-    /* Remove background gradient and hide video containers or images */
-    & [style^="background: linear-gradient("] {
-        background: none !important;
-        & [class^="videoContainer_"], img { 
-            display: none; 
-        }
-    }
-    /* Adjust background for selected elements */
-    &[class*="selected_"]:has([style^="background: linear-gradient("]) {
-        background: var(--bg-overlay-selected, var(--background-modifier-selected)) !important;
-    }
-    /* Adjust hover and focus styles */
-    &:has([style^="background: linear-gradient("]) {
-        &:hover, &:focus-within { 
-            background: var(--bg-overlay-hover, var(--background-modifier-hover)) !important; 
-        }
-    }
+/* DM items with linkPlated class */
+[class*="dm_"] [class*="linkPlated_"] {
+  padding-right: var(--space-16);
+}
+[class*="dm_"] [class*="closeButtonPlated_"] {
+  opacity: 0.7;
+}
+[class*="dm_"] [class*="closeButtonPlated_"]:hover {
+  opacity: 1;
+}
+[class*="dm_"] [class^="innerCloseButtonPlated"] {
+  opacity: unset;
+  background: none;
+}
+[class*="dm_"] [class^="innerCloseButtonPlated"] svg {
+  color: inherit;
+}
+[class*="dm_"] [class^="innerCloseButtonPlated"] svg:hover,
+[class*="dm_"] [class^="innerCloseButtonPlated"] svg:focus-within {
+  color: var(--interactive-hover);
 }
 
-/* Reset padding for elements with "linkPlated_" class */
-[class*="linkPlated_"] { 
-    padding-right: 0; 
+/* Simplify lated class (avoid deep :has) */
+[class*="lated"] [style^="background: linear-gradient("] {
+  background: none !important;
+}
+[class*="lated"] [style^="background: linear-gradient("] img,
+[class*="lated"] [style^="background: linear-gradient("] [class^="videoContainer_"] {
+  display: none;
+}
+[class*="lated"].selected_ {
+  background: var(--bg-overlay-selected, var(--background-modifier-selected)) !important;
+}
+[class*="lated"]:hover,
+[class*="lated"]:focus-within {
+  background: var(--bg-overlay-hover, var(--background-modifier-hover)) !important;
 }
 
-/* REMOVE QUICK REACT BAR */
+[class*="linkPlated_"] {
+  padding-right: 0;
+}
+
+/* Remove Quick React Bar */
 .button_f7ecac.hoverBarButton_f84418:nth-of-type(1),
 .button_f7ecac.hoverBarButton_f84418:nth-of-type(2),
 .button_f7ecac.hoverBarButton_f84418:nth-of-type(3),
 .separator_f84418 {
-   display: none;
+  display: none;
 }
-
-
-
-    /* Only include this part if you wish to change these variables */
-    /* You can change the size but only to be less than 48px, you must change the blob scale too */
-
