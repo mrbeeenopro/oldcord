@@ -1,9 +1,9 @@
 /**
-  * @name 2025 Q1 old ui 
-  * @version 1.1
+  * @name discord basic 
+  * @version 1.2
   * @author @mrbeenopro
   * @source https://github.com/mrbeeenopro/oldcord
-  * @description Restores discord's 2025 Q1 UI
+  * @description Restores discord's 2024-2025 Q1 UI
 */
 @import url("https://mrbeeenopro.github.io/oldcord/main.css");
 
@@ -13,11 +13,6 @@ Addons
 remove a "/*" below to enable one
 */
 
-/*@import url("https://milbits.github.io/oldcord/src/components/oldEmojis.css");*/
-/*@import url("https://milbits.github.io/oldcord/src/components/oldContext.css");*/
-/*@import url("https://milbits.github.io/oldcord/src/components/showEffects.css");*/
-
-/* Options */
 
 :root {
 	/* Re-adds the animation for reactions. Might look weird | 0 - off | 1 - on*/
