@@ -5,10 +5,12 @@
 
 :root {
     --guildbar-avatar-size: 40px;
-    --blob-scale: 48;
-    --guildbar-folder-size: var(--guildbar-avatar-size);
+    --blob-scale: 40;
+    --guildbar-folder-size: 50px;
     --folder-blob-scale: var(--blob-scale);
-    --custom-guild-list-width: 72px; 
+    --custom-guild-list-width: 80px; 
+     border-radius: 50% !important;
+    
 }
 
 
