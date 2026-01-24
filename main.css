@@ -1,37 +1,27 @@
-/**
- * REFACTORED DISCORD CSS
- * Tối ưu cho Visual Refresh & Custom Guild Bar
- */
 
-/* 1. IMPORT CÁC THƯ VIỆN NGOÀI */
 @import url('https://raw.githubusercontent.com/surgedevs/visual-refresh-compact-title-bar/refs/heads/main/desktop.css');
 @import url('https://raw.githubusercontent.com/LuSaffi/VenCordstuff/refs/heads/main/CSS/%5BOLD_UI%5DcutoffFixes.css');
-/* Bỏ qua GuildbarRevert nếu nó gây lỗi nặng, đã tích hợp fix bên dưới */
 
-/* 2. CẤU HÌNH BIẾN HỆ THỐNG */
+
 :root {
-    --guildbar-avatar-size: 48px;
+    --guildbar-avatar-size: 40px;
     --blob-scale: 48;
     --guildbar-folder-size: var(--guildbar-avatar-size);
     --folder-blob-scale: var(--blob-scale);
-    --custom-guild-list-width: 72px; /* Độ rộng chuẩn của thanh server */
+    --custom-guild-list-width: 72px; 
 }
 
-/* 3. FIX LỖI HIỂN THỊ THANH SERVER (NAVBAR) */
-.visual-refresh [class*="guilds_"] {
-    margin-bottom: 0 !important;
-    width: var(--custom-guild-list-width);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-/* Căn giữa các icon server và folder */
-.visual-refresh [class*="listItem_"] {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 0 0 8px 0;
+/* make server icons circles */
+.visual-refresh {
+  .listItem__650eb {
+    .childWrapper__6e9f8,
+    .icon__6e9f8,
+    .icon_f34534,
+    .circleIconButton__5bc7e {
+      border-radius: 100% !important;
+    }
+  }
 }
 
 .visual-refresh [class*="expandedFolderBackground_"] {
@@ -41,12 +31,10 @@
     border-radius: 16px;
 }
 
-/* Sửa lỗi bo tròn icon */
 [class*="guildIcon_"] {
     border-radius: 50% !important;
 }
 
-/* 4. FIX KHUNG CHAT & SIDEBAR */
 .visual-refresh [class*="sidebar_"] [class*="panels_"] {
     width: calc(var(--custom-guild-sidebar-width) - var(--custom-guild-list-width) + 1px);
     left: var(--custom-guild-list-width);
@@ -60,20 +48,16 @@
     display: none;
 }
 
-/* Fix chiều cao khung soạn thảo */
 .visual-refresh {
     --custom-channel-textarea-text-area-height: 56px;
 }
 
-/* 5. DỌN DẸP GIAO DIỆN (UI CLEANUP) */
-/* Ẩn Nameplates & Quick React Bar */
 [style^="background: linear-gradient(90deg"] img[src*="/nameplates/"],
 [class*="hoverBarButton_"],
 [class*="separator_f84418"] {
     display: none !important;
 }
 
-/* Hiện full timestamp khi di chuột */
 [class*="timestampInline_"] {
     font-size: 0 !important;
 }
@@ -82,13 +66,11 @@
     font-size: 12px;
 }
 
-/* Tối ưu hiển thị tin nhắn riêng (DM) */
 [class*="dm_"] [class*="linkPlated_"] {
     padding-right: 16px;
     background: none !important;
 }
 
-/* Fix hiệu ứng hover/selected cho các item */
 [class*="lated"]:hover,
 [class*="lated"]:focus-within {
     background: var(--background-modifier-hover) !important;
@@ -98,7 +80,7 @@
     background: var(--background-modifier-selected) !important;
 }
 
-/* 6. FIX CÁC NÚT NHỎ */
+
 .visual-refresh [class*="actionButtons_"] button {
     padding: 0;
 }
