@@ -83,13 +83,31 @@
     padding: 0;
 }
 
-/* Keep Discord's desktop window controls visible above theme overrides. */
-.visual-refresh .winButtons_c38106 {
+/* Keep the desktop title bar and its native window controls rendered above the app. */
+.visual-refresh [class*="base_"] > [class*="bar_"] {
     display: flex !important;
     visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 20 !important;
+    overflow: visible !important;
 }
 
-/* Reserve space for Discord's back/forward controls and keep the channel identity from shrinking underneath them. */
+.visual-refresh [class*="bar_"] [class*="winButtons"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 21 !important;
+}
+
+.visual-refresh [class*="winButtons"] > * {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Reserve space for Discord's back/forward controls and protect the group name/icon. */
 .visual-refresh div[class*="chat_"] > section[class*="container_"] > div[class*="children_"] {
     box-sizing: border-box;
     flex: 1 1 auto;
