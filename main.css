@@ -7,6 +7,7 @@
     --guildbar-folder-size: 50px;
     --folder-blob-scale: var(--blob-scale);
     --custom-guild-list-width: 80px;
+    --oldcord-chat-header-nav-space: 72px;
 }
 
 /* Make server icons circles. */
@@ -88,8 +89,15 @@
     visibility: visible !important;
 }
 
-/* Reserve room for Discord's back/forward controls in the chat header. */
-.visual-refresh .chat_f75fb0 > section.container__9293f > .children__9293f {
-    padding-left: 72px;
+/* Reserve space for Discord's back/forward controls and keep the channel identity from shrinking underneath them. */
+.visual-refresh div[class*="chat_"] > section[class*="container_"] > div[class*="children_"] {
+    box-sizing: border-box;
+    flex: 1 1 auto;
     min-width: 0;
+    padding-inline-start: var(--oldcord-chat-header-nav-space);
+}
+
+.visual-refresh div[class*="chat_"] > section[class*="container_"] > div[class*="children_"] > [class*="icon"],
+.visual-refresh div[class*="chat_"] > section[class*="container_"] > div[class*="children_"] > [class*="avatar"] {
+    flex-shrink: 0;
 }
