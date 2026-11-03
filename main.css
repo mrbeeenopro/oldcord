@@ -120,29 +120,33 @@
     flex-shrink: 0;
 }
 
-/* Center guild entries in the rail and give each server avatar a consistent 40px box. */
-.visual-refresh ul[data-list-id="guildsnav"] > div[class*="itemsContainer"] {
-    align-items: center;
-}
-
-.visual-refresh ul[data-list-id="guildsnav"] [class*="listItem"] {
+/* Center each guild entry within the rail without shrinking folder or avatar contents. */
+.visual-refresh ul[data-list-id="guildsnav"] [class*="listItem__"] {
     box-sizing: border-box;
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.visual-refresh ul[data-list-id="guildsnav"] [class*="listItem"] > [class*="wrapper"] {
-    width: var(--guildbar-avatar-size);
-    height: var(--guildbar-avatar-size);
-    min-width: var(--guildbar-avatar-size);
-    flex: 0 0 var(--guildbar-avatar-size);
+.visual-refresh ul[data-list-id="guildsnav"] [class*="listItem__"] > [class*="wrapper"] {
+    position: relative;
+    left: auto;
+    right: auto;
     margin-inline: auto;
+    flex: 0 0 auto;
 }
 
-.visual-refresh ul[data-list-id="guildsnav"] [class*="listItem"] [class*="guildIcon"] {
-    display: block;
+/* Keep server avatar boxes square and centered; do not resize folder controls. */
+.visual-refresh ul[data-list-id="guildsnav"] [class*="listItem__"] > [class*="wrapper"]:has([class*="guildIcon_"], .icon__6e9f8, .icon_f34534) {
+    width: var(--guildbar-avatar-size);
+    height: var(--guildbar-avatar-size);
+}
+
+.visual-refresh ul[data-list-id="guildsnav"] [class*="listItem__"] > [class*="wrapper"]:has([class*="guildIcon_"]) [class*="guildIcon_"],
+.visual-refresh ul[data-list-id="guildsnav"] [class*="listItem__"] > [class*="wrapper"] .icon__6e9f8,
+.visual-refresh ul[data-list-id="guildsnav"] [class*="listItem__"] > [class*="wrapper"] .icon_f34534 {
     width: 100%;
     height: 100%;
+    display: block;
     object-fit: cover;
 }
