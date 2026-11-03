@@ -1,28 +1,24 @@
 @import url('https://raw.githubusercontent.com/surgedevs/visual-refresh-compact-title-bar/refs/heads/main/desktop.css');
 @import url('https://raw.githubusercontent.com/LuSaffi/VenCordstuff/refs/heads/main/CSS/%5BOLD_UI%5DcutoffFixes.css');
 
-
 :root {
     --guildbar-avatar-size: 40px;
     --blob-scale: 40;
     --guildbar-folder-size: 50px;
     --folder-blob-scale: var(--blob-scale);
-    --custom-guild-list-width: 80px; 
-     border-radius: 50% !important;
-    
+    --custom-guild-list-width: 80px;
 }
 
-
-/* make server icons circles */
+/* Make server icons circles. */
 .visual-refresh {
-  .listItem__650eb {
-    .childWrapper__6e9f8,
-    .icon__6e9f8,
-    .icon_f34534,
-    .circleIconButton__5bc7e {
-      border-radius: 100% !important;
+    .listItem__650eb {
+        .childWrapper__6e9f8,
+        .icon__6e9f8,
+        .icon_f34534,
+        .circleIconButton__5bc7e {
+            border-radius: 100% !important;
+        }
     }
-  }
 }
 
 .visual-refresh [class*="expandedFolderBackground_"] {
@@ -62,6 +58,7 @@
 [class*="timestampInline_"] {
     font-size: 0 !important;
 }
+
 [class*="timestampInline_"] time::before {
     content: attr(aria-label);
     font-size: 12px;
@@ -81,7 +78,18 @@
     background: var(--background-modifier-selected) !important;
 }
 
-
 .visual-refresh [class*="actionButtons_"] button {
     padding: 0;
+}
+
+/* Keep Discord's desktop window controls visible above theme overrides. */
+.visual-refresh .winButtons_c38106 {
+    display: flex !important;
+    visibility: visible !important;
+}
+
+/* Reserve room for Discord's back/forward controls in the chat header. */
+.visual-refresh .chat_f75fb0 > section.container__9293f > .children__9293f {
+    padding-left: 72px;
+    min-width: 0;
 }
